@@ -11,7 +11,11 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "ts:check": "tsc",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "dev:check": "npm run ts:check && npm run lint && npm run format:check",
+    "dev:fix": "npm run format && npm run lint:fix && npm run ts:check",
+    "precommit": "npm run dev:check",
+    "branch:check": "node scripts/check-branch-name.js"
   },
   "dependencies": {
     "@expo/config-plugins": "~10.1.1",
